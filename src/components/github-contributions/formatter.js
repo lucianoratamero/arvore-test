@@ -9,12 +9,14 @@ export default class ContributionsFormatter {
     this.period = '2016 - 2017';
     this.colorSteps = ['#eee', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
     this.percentileSteps = [10, 30, 50, 70, 90];
-    this.weeks = {}
+    this.startingMonth = moment(this.items[0].date).month();
+    this.weeks = {};
 
     this._populateItemsIntoWeeks(this.items, this.weeks);
     this._fillWeeks(this.weeks);
     this._fillColors(this.items);
 
+    this.numberOfMonths = Math.ceil(Object.keys(this.weeks).length / 4);
   }
 
   get max() { return _.maxBy(this.items, 'count').count; }
