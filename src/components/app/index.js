@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import GithubContributions from '../github-contributions';
-import logo from './logo.svg';
 
 
 export default class App extends Component {
@@ -9,7 +8,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src="/arvore-test/logo.svg" className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Árvore's coding challenge</h1>
         </header>
         <div className="App-container">
