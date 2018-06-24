@@ -1,4 +1,5 @@
 @import url(../../components/app/app.css);
+@import url(../../components/github-contributions/github-contributions.css);
 body {
   margin: 0;
   padding: 0;
