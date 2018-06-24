@@ -12,6 +12,7 @@ export default class ContributionsFormatter {
     this.weeks = {}
 
     this._populateItemsIntoWeeks(this.items, this.weeks);
+    this._fillWeeks(this.weeks);
 
     for (let i = 0; i < this.items.length; i++) {
       let item = this.items[i];
@@ -33,6 +34,21 @@ export default class ContributionsFormatter {
       weeks[yearAndWeek] = weeks[yearAndWeek] || [];
       weeks[yearAndWeek].push(item);
     }
+  }
+
+  _fillWeeks(weeks) {
+    Object.entries(weeks).map(entry => {
+      let days = entry[1];
+
+      for (let i = 0; i < 7; i++) {
+        const dayOfWeek = i;
+        if (!_.some(days, { dayOfWeek })) {
+          days.push({ color: '#eee', count: 0, dayOfWeek });
+        }
+      }
+
+      return null;
+    });
   }
 
   _closestNumber(percentile) {
