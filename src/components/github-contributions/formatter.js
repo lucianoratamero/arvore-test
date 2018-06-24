@@ -1,5 +1,6 @@
 
 import _ from 'lodash';
+import moment from 'moment';
 
 
 export default class ContributionsFormatter {
@@ -8,6 +9,9 @@ export default class ContributionsFormatter {
     this.period = '2016 - 2017';
     this.colorSteps = ['#eee', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
     this.percentileSteps = [10, 30, 50, 70, 90];
+    this.weeks = {}
+
+    this._populateItemsIntoWeeks(this.items, this.weeks);
 
     for (let i = 0; i < this.items.length; i++) {
       let item = this.items[i];
@@ -18,6 +22,18 @@ export default class ContributionsFormatter {
   get max() { return _.maxBy(this.items, 'count').count; }
   get min() { return _.minBy(this.items, 'count').count; }
   get total() { return this.items.length; }
+
+  _populateItemsIntoWeeks(items, weeks){
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i];
+      item.moment = moment(item.date);
+      item.dayOfWeek = item.moment.day();
+
+      const yearAndWeek = `${item.moment.year()} - ${item.moment.week()}`;
+      weeks[yearAndWeek] = weeks[yearAndWeek] || [];
+      weeks[yearAndWeek].push(item);
+    }
+  }
 
   _closestNumber(percentile) {
     let minDiff = 100,
