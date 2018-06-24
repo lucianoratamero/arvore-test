@@ -23,8 +23,10 @@ export default class GithubContributions extends React.Component {
         <p>Max: {data.max}</p>
         <p>Min: {data.min}</p>
         <p>Total: {data.total}</p>
-        {data.items.map(contributions => (
-          <p key={contributions.date}>{contributions.date} - {contributions.count} - {contributions.color}</p>
+        {Object.entries(data.weeks).map(entry => (
+          <div className="week" key={entry[0]}>
+            {JSON.stringify(entry[1])}
+          </div>
         ))}
       </div>
     )

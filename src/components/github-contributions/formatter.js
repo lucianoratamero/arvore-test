@@ -13,11 +13,8 @@ export default class ContributionsFormatter {
 
     this._populateItemsIntoWeeks(this.items, this.weeks);
     this._fillWeeks(this.weeks);
+    this._fillColors(this.items);
 
-    for (let i = 0; i < this.items.length; i++) {
-      let item = this.items[i];
-      item.color = this._colorStepByContributions(item.count);
-    }
   }
 
   get max() { return _.maxBy(this.items, 'count').count; }
@@ -49,6 +46,13 @@ export default class ContributionsFormatter {
 
       return null;
     });
+  }
+
+  _fillColors(items) {
+    for (let i = 0; i < items.length; i++) {
+      let item = items[i];
+      item.color = this._colorStepByContributions(item.count);;
+    }
   }
 
   _closestNumber(percentile) {
