@@ -1,10 +1,25 @@
 #github-contributions {
-  padding: 2em 0;
-  display: flex;
-  justify-content: center; }
-  #github-contributions .week {
+  margin: 2em 0;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 0.4em; }
+  #github-contributions #week-labels, #github-contributions .week {
     display: flex;
     flex-direction: column; }
+  #github-contributions #month-labels, #github-contributions #weeks-wrapper, #github-contributions #week-labels {
+    display: flex;
+    justify-content: space-evenly;
+    color: #777; }
+  #github-contributions #week-labels {
+    justify-content: space-between; }
+  #github-contributions .week-label.transparent {
+    opacity: 0;
+    visibility: hidden; }
+  #github-contributions #month-labels {
+    padding-left: 3.6em;
+    padding-right: 0.6em;
+    margin-bottom: 0.6em;
+    justify-content: space-around; }
   #github-contributions .day {
     height: 0.8em;
     width: 0.8em;
