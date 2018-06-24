@@ -3,6 +3,7 @@ import React from "react";
 
 import contributionsData from '../../data/contributions';
 import ContributionsFormatter from './formatter';
+import Week from './week';
 import './github-contributions.scss';
 
 
@@ -24,9 +25,7 @@ export default class GithubContributions extends React.Component {
         <p>Min: {data.min}</p>
         <p>Total: {data.total}</p>
         {Object.entries(data.weeks).map(entry => (
-          <div className="week" key={entry[0]}>
-            {JSON.stringify(entry[1])}
-          </div>
+          <Week key={entry[0]} days={entry[1]} />
         ))}
       </div>
     )
