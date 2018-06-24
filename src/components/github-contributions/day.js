@@ -2,7 +2,7 @@
 import React from "react";
 
 
-export default class GithubContributions extends React.Component {
+export default class Day extends React.Component {
 
   render() {
     const { color, count } = this.props

@@ -5,7 +5,7 @@ import _ from 'lodash';
 import Day from './day';
 
 
-export default class GithubContributions extends React.Component {
+export default class Week extends React.Component {
   render() {
     let { days } = this.props;
     days = _.orderBy(days, 'dayOfWeek');
