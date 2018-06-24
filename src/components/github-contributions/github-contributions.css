@@ -1,2 +1,11 @@
 #github-contributions {
-  padding: 2em 0; }
+  padding: 2em 0;
+  display: flex;
+  justify-content: center; }
+  #github-contributions .week {
+    display: flex;
+    flex-direction: column; }
+  #github-contributions .day {
+    height: 0.8em;
+    width: 0.8em;
+    margin: 0.2em; }

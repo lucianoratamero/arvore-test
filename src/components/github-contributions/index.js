@@ -20,12 +20,8 @@ export default class GithubContributions extends React.Component {
 
     return (
       <div id="github-contributions">
-        <p>Period: {data.period}</p>
-        <p>Max: {data.max}</p>
-        <p>Min: {data.min}</p>
-        <p>Total: {data.total}</p>
         {Object.entries(data.weeks).map(entry => (
-          <Week key={entry[0]} days={entry[1]} />
+          <Week key={'week-' + entry[0]} days={entry[1]} />
         ))}
       </div>
     )

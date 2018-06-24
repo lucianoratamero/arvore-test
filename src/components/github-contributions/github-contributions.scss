@@ -1,4 +1,17 @@
 
 #github-contributions {
   padding: 2em 0;
+  display: flex;
+  justify-content: center;
+
+  .week {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .day {
+    height: 0.8em;
+    width: 0.8em;
+    margin: 0.2em;
+  }
 }

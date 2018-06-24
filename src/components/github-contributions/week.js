@@ -12,8 +12,8 @@ export default class GithubContributions extends React.Component {
 
     return (
       <div className="week">
-        {days.map(day => (
-          <Day key={day} {...day} />
+        {days.map((day, i) => (
+          <Day key={'day-' + i} {...day} />
         ))}
       </div>
     )
