@@ -19,7 +19,7 @@ export default class ContributionsFormatter {
 
   get max() { return _.maxBy(this.items, 'count').count; }
   get min() { return _.minBy(this.items, 'count').count; }
-  get total() { return this.items.length; }
+  get total() { return _.sumBy(this.items, 'count'); }
 
   _populateItemsIntoWeeks(items, weeks){
     for (let i = 0; i < items.length; i++) {
